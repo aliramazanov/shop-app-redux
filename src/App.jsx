@@ -18,7 +18,6 @@ import Basket from "./pages/Basket";
 import About from "./pages/About";
 import Header from "./components/Header/Header";
 import modalData from "./modalData.jsx";
-import "./App.scss";
 
 export default function App() {
   const dispatch = useDispatch();
