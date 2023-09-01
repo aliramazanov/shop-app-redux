@@ -4,7 +4,7 @@ import {
 } from "../actions/actionTypes";
 
 const initialState = {
-  favourites: [],
+  favourites: JSON.parse(localStorage.getItem("favorites")) || [],
 };
 
 export const favouritesReducer = (state = initialState, action) => {
@@ -13,17 +13,23 @@ export const favouritesReducer = (state = initialState, action) => {
       if (
         !state.favourites.some((item) => item.id === action.payload.product.id)
       ) {
+        const updatedFavorites = [...state.favourites, action.payload.product];
+        localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
+
         return {
           ...state,
-          favourites: [...state.favourites, action.payload.product],
+          favourites: updatedFavorites,
         };
       }
     case REMOVE_FROM_FAVOURITES:
+      const updatedFavorites = state.favourites.filter(
+        (item) => item.id !== action.payload.product.id
+      );
+      localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
+
       return {
         ...state,
-        favourites: state.favourites.filter(
-          (item) => item.id !== action.payload.product.id
-        ),
+        favourites: updatedFavorites,
       };
     default:
       return state;
