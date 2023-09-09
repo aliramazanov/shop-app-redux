@@ -13,7 +13,7 @@ export default function Favourites() {
     <div className="favourites-page">
       <h2 className="pages-hero">Discover Your Exquisite Collection</h2>
       <ProductList products={favourites} isBasketPage={false} />
-      {isModalOpen && <Modal closeModal={closeModal} />}
+      {isModalOpen && <Modal />}
     </div>
   );
 }

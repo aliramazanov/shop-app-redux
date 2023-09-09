@@ -2,11 +2,7 @@ import { useSelector } from "react-redux";
 import ProductList from "../components/ProductList/ProductList";
 import "./PageStyles.scss";
 
-export default function Basket({
-  makeFavourite,
-  makeNonFavourite,
-  removeProduct,
-}) {
+export default function Basket() {
   const favourites = useSelector(
     (state) => state.favouritedProducts.favourites
   );
@@ -17,10 +13,7 @@ export default function Basket({
       <ProductList
         favourites={favourites}
         products={basket}
-        makeFavourite={makeFavourite}
-        makeNonFavourite={makeNonFavourite}
         isBasketPage={true}
-        removeProduct={removeProduct}
       />
     </div>
   );

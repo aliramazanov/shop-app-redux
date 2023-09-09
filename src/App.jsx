@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 import { initializeProducts } from "./store/actions/initializeProducts";
 
@@ -10,19 +10,11 @@ import Header from "./components/Header/Header";
 import Home from "./pages/Home";
 
 export default function App() {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(initializeProducts());
-  }, []);
-
   return (
     <div className="app">
       <BrowserRouter>
         <header>
-          <div className="header-wrapper">
-            <Header />
-          </div>
+          <Header />
         </header>
         <main>
           <Routes>
