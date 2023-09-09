@@ -1,7 +1,13 @@
+import { useSelector } from "react-redux";
 import "./Header.scss";
 import { NavLink } from "react-router-dom";
 
-export default function Header({ favourites, basket }) {
+export default function Header() {
+  const favourites = useSelector(
+    (state) => state.favouritedProducts.favourites
+  );
+  const basket = useSelector((state) => state.basketProducts.basket);
+
   return (
     <div className="header-component-wrapper">
       <h1>Hobby Shop</h1>

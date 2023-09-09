@@ -1,10 +1,9 @@
 import ProductList from "../components/ProductList/ProductList";
 import Welcome from "../components/Welcome/Welcome";
 import Modal from "../components/Modal/Modal";
+import { useSelector } from "react-redux";
 
 export default function Home({
-  favourites,
-  products,
   handleOpenModalButton,
   isModalOpen,
   currentModalData,
@@ -13,12 +12,13 @@ export default function Home({
   makeFavourite,
   makeNonFavourite,
 }) {
+  const products = useSelector((state) => state.fetchProducts.products);
+
   return (
     <div>
       <Welcome />
       <ProductList
         products={products}
-        favourites={favourites}
         isBasketPage={false}
         handleOpenModalButton={handleOpenModalButton}
         makeFavourite={makeFavourite}

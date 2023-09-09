@@ -8,7 +8,6 @@ export default function Product({
   handleOpenModalButton,
   isBasketPage,
   product,
-  favourites,
   removeProduct,
   makeFavourite,
   makeNonFavourite,
@@ -45,7 +44,6 @@ export default function Product({
             makeFavourite={makeFavourite}
             makeNonFavourite={makeNonFavourite}
             product={product}
-            isFavourite={favourites.some((item) => item.id === product.id)}
           />
         </div>
       </div>

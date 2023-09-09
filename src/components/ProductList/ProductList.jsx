@@ -1,11 +1,11 @@
+import { useSelector } from "react-redux";
 import Product from "../Products/Product";
 import "./productList.scss";
 
 export default function ProductList({
-  products,
   handleOpenModalButton,
   removeProduct,
-  favourites,
+  products,
   isBasketPage,
   makeFavourite,
   makeNonFavourite,
@@ -19,7 +19,6 @@ export default function ProductList({
           isBasketPage={isBasketPage}
           handleOpenModalButton={handleOpenModalButton}
           removeProduct={removeProduct}
-          favourites={favourites}
           makeFavourite={makeFavourite}
           makeNonFavourite={makeNonFavourite}
         />

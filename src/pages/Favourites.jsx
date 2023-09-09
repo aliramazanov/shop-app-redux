@@ -2,6 +2,7 @@ import React from "react";
 import ProductList from "../components/ProductList/ProductList";
 import Modal from "../components/Modal/Modal";
 import "./PageStyles.scss";
+import { useSelector } from "react-redux";
 
 export default function Favourites({
   handleOpenModalButton,
@@ -11,15 +12,16 @@ export default function Favourites({
   handleContinueButtonClick,
   makeNonFavourite,
   makeFavourite,
-  products,
-  favourites,
 }) {
+  const favourites = useSelector(
+    (state) => state.favouritedProducts.favourites
+  );
+
   return (
     <div className="favourites-page">
       <h2 className="pages-hero">Discover Your Exquisite Collection</h2>
       <ProductList
-        favourites={favourites}
-        products={products}
+        products={favourites}
         isBasketPage={false}
         handleOpenModalButton={handleOpenModalButton}
         makeFavourite={makeFavourite}
