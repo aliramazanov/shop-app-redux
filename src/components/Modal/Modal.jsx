@@ -17,6 +17,7 @@ export default function Modal() {
       dispatch(closeModal());
     }
   };
+
   const handleClosingOfModal = () => {
     dispatch(clearSelectedProduct());
     dispatch(closeModal());
@@ -45,7 +46,7 @@ export default function Modal() {
           <div className="text-of-modal">{text}</div>
           <div className="actions-of-modal">
             <div className="actions-of-modal">
-              {actions(closeModal, handleContinueButtonClick)}
+              {actions(handleClosingOfModal, handleContinueButtonClick)}
             </div>
           </div>
         </div>
